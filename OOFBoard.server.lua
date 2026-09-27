@@ -1,5 +1,5 @@
 -- OOFBoard · read-only
--- Shows this game's OOF coin and the passes OOF has bought, in a small corner panel.
+-- Shows this game's OOFPAD coin and the passes OOFPAD has bought, in a small corner panel.
 -- 1) Game Settings > Security > Allow HTTP Requests = ON
 -- 2) Put this Script in ServerScriptService
 -- It only reads one URL. No purchases, no remotes, no player data sent anywhere.
@@ -11,7 +11,7 @@ local API = "{{ORIGIN}}/api/oof?place=" .. tostring(game.PlaceId)
 local REFRESH = 60
 
 local state = {
-	title = "OOF",
+	title = "OOFPAD",
 	line1 = "no coin for this game yet",
 	line2 = "",
 }
@@ -82,9 +82,9 @@ local function poll()
 	if data.coin and data.coin.ticker then
 		state.title = "$" .. tostring(data.coin.ticker) .. "  ·  this game's coin"
 	else
-		state.title = "OOF"
+		state.title = "OOFPAD"
 	end
-	state.line1 = data.coin and ("passes bought by OOF: " .. commas(data.bought or 0)) or "no coin for this game yet"
+	state.line1 = data.coin and ("passes bought by OOFPAD: " .. commas(data.bought or 0)) or "no coin for this game yet"
 	state.line2 = commas(data.playing or 0) .. " playing right now"
 	render()
 end

@@ -1,4 +1,4 @@
-// OOF live API — Vercel Routing Middleware (works on a plain static project, no build step).
+// OOFPAD live API — Vercel Routing Middleware (works on a plain static project, no build step).
 // Routes:  /api/top   /api/game?q=<link|placeId>   /api/sol   /api/oof?place=<placeId>
 export const config = { matcher: ['/api/:path*'] };
 
@@ -9,7 +9,7 @@ const HEAD = {
 };
 const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: HEAD });
 const get = async (u) => {
-  const r = await fetch(u, { headers: { accept: 'application/json', 'user-agent': 'oof-pad/1.0' } });
+  const r = await fetch(u, { headers: { accept: 'application/json', 'user-agent': 'oofpad/1.0' } });
   if (!r.ok) throw new Error(`${new URL(u).host} ${r.status}`);
   return r.json();
 };
